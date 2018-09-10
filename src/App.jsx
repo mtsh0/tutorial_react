@@ -10,11 +10,6 @@ class App extends Component {
           <img src={logo} className="react-logo" alt="logo" />
         </div>
       </div>
-      // <div className="App">
-      //   <header className="App-header">
-      //     <img src={logo} className="App-logo" alt="logo" />
-      //   </header>
-      // </div>
     );
   }
 }
