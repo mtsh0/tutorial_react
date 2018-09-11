@@ -4,6 +4,7 @@ import './App.css';
 import SearchInYoutube from 'youtube-api-search';
 import Header from './components/Header/Header';
 import Body from './components/Body/Body';
+import List from './components/Video/List/List'
 
 
 
@@ -11,15 +12,37 @@ const youtube_api_key = 'AIzaSyA9LcEu99UT8OzJ2PcmLaE9K0UXrt1VdIk';
 
 class App extends Component {
 
-  // // stateの初期化
+  // stateの初期化
   state = { videos: [] }
 
-  // // componentDidMountでAPIリクエストを行う
+  componentWillMount() {
+    console.log("componentWillMount");
+  }
+
+  // componentDidMountでAPIリクエストを行う
   componentDidMount() {
     SearchInYoutube({ key: youtube_api_key, term: '猫 きゅうり' }, (data) => {
       this.setState({ videos: data });
     });
+
+    console.log("componentDidMount");
   }
+
+  // 
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('更新前のstate:' + this.state.videos);
+    console.log('更新後のstate:' + nextState.videos);
+    return true;
+  }
+
+  componentWillUpdate() {
+    console.log("componentWillUpdate");
+  }
+
+  componentDidUpdate() {
+    console.log("componentDidupdate");
+  }
+
 
   render() {
 
@@ -32,7 +55,7 @@ class App extends Component {
         </div>
         <Header />
         <Body>
-          
+          <List videos={this.state.videos} />
         </Body>
       </div>
     );
