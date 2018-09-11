@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import SearchInYoutube from 'youtube-api-search';
 import Header from './components/Header/Header';
+import Body from './components/Body/Body';
 
 
 
@@ -30,6 +31,9 @@ class App extends Component {
           <img src={logo} className="react-logo" alt="logo" />
         </div>
         <Header />
+        <Body>
+          
+        </Body>
       </div>
     );
   }
