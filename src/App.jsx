@@ -5,6 +5,7 @@ import SearchInYoutube from 'youtube-api-search';
 import Header from './components/Header/Header';
 import Body from './components/Body/Body';
 import List from './components/Video/List/List';
+import Video from './components/Video/Video';
 
 
 
@@ -56,6 +57,7 @@ class App extends Component {
         </div>
         <Header />
         <Body>
+          <Video video={this.state.videos[0]} />
           <List videos={this.state.videos} />
         </Body>
       </div>
