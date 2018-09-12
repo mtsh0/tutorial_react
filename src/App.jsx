@@ -9,7 +9,7 @@ import List from './components/Video/List/List';
 
 
 
-const youtube_api_key = process.env.REACT_APP_YOUTUBE_API_KEY
+const youtube_api_key = process.env.REACT_APP_YOUTUBE_API_KEY;
 
 class App extends Component {
 
@@ -22,7 +22,7 @@ class App extends Component {
 
   // componentDidMountでAPIリクエストを行う
   componentDidMount() {
-    SearchInYoutube({ key: process.env.development.REACT_APP_YOUTUBE_API_KEY, term: '猫 きゅうり' }, (data) => {
+    SearchInYoutube({ key: youtube_api_key, term: '猫 きゅうり' }, (data) => {
       this.setState({ videos: data });
     });
 
