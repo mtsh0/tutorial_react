@@ -4,11 +4,12 @@ import './App.css';
 import SearchInYoutube from 'youtube-api-search';
 import Header from './components/Header/Header';
 import Body from './components/Body/Body';
-import List from './components/Video/List/List'
+import List from './components/Video/List/List';
 
 
 
-const youtube_api_key = 'AIzaSyA9LcEu99UT8OzJ2PcmLaE9K0UXrt1VdIk';
+
+const youtube_api_key = process.env.REACT_APP_YOUTUBE_API_KEY
 
 class App extends Component {
 
@@ -21,7 +22,7 @@ class App extends Component {
 
   // componentDidMountでAPIリクエストを行う
   componentDidMount() {
-    SearchInYoutube({ key: youtube_api_key, term: '猫 きゅうり' }, (data) => {
+    SearchInYoutube({ key: process.env.development.REACT_APP_YOUTUBE_API_KEY, term: '猫 きゅうり' }, (data) => {
       this.setState({ videos: data });
     });
 
