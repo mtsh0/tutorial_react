@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import SearchInYoutube from 'youtube-api-search';
 import Header from './components/Header/Header';
@@ -52,9 +51,6 @@ class App extends Component {
 
     return (
       <div>
-        <div className="react-icon">
-          <img src={logo} className="react-logo" alt="logo" />
-        </div>
         <Header />
         <Body>
           <Video video={this.state.videos[0]} />

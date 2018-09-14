@@ -17,7 +17,7 @@ const Video = (props) => {
   return (
     <div className="video col-md-8">
       <div className="embed-responsive embed-responsive-16by9">
-        <iframe className="embed-responsive-item" src={videoURL} frameborder="0"></iframe>
+        <iframe className="embed-responsive-item" src={videoURL} frameBorder="0"></iframe>
       </div>
       <div className="info">
         <div>{props.video.snippet.title}</div>
