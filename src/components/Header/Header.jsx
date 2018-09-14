@@ -11,7 +11,11 @@ class Header extends Component {
   }
 
   render() {
+    const fontStyle = {
+      fontFamily: 'Pacifico'
+    }
     return (
+
       <nav
         className="navbar nabvar-expand navbar-light bg-light mb-3 p-3"
       >
@@ -19,7 +23,12 @@ class Header extends Component {
           <span className="p-2 mr-2">
             <img src={logo} className="react-logo" alt="logo" />
           </span>
-          <span className="d-none d-md-inline">Search Youtbe</span>
+          <span
+            className="d-none d-md-inline"
+            style={fontStyle}
+          >
+            Yeah!! Prgoraming
+          </span>
         </h2>
         <form className="form-group my-2 my-lg-0 ml-sm-2 ">
           <input
