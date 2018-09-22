@@ -14,7 +14,10 @@ const youtube_api_key = process.env.REACT_APP_YOUTUBE_API_KEY;
 class App extends Component {
 
   // stateの初期化
-  state = { videos: [] }
+  state = {
+    videos: [],
+    selectedVideo: null
+  };
 
   componentWillMount() {
     console.log("componentWillMount");
@@ -23,7 +26,7 @@ class App extends Component {
   // componentDidMountでAPIリクエストを行う
   componentDidMount() {
     SearchInYoutube({ key: youtube_api_key, term: '猫 きゅうり' }, (data) => {
-      this.setState({ videos: data });
+      this.setState({ videos: data, selectedVideo: data[2] });
     });
 
     console.log("componentDidMount");
@@ -44,17 +47,23 @@ class App extends Component {
     console.log("componentDidupdate");
   }
 
+  onVideoClickedHandler = (video) => {
+    this.setState({selectedVideo: video})
+  }
 
   render() {
-
+    
     // console.log(this.state.videos);
 
     return (
-      <div>
+      <div className="App">
         <Header />
         <Body>
-          <Video video={this.state.videos[0]} />
-          <List videos={this.state.videos} />
+          <Video video={this.state.selectedVideo} />
+          <List
+            videos={this.state.videos}
+            onVideoClicked = {this.onVideoClickedHandler}  
+          />
         </Body>
       </div>
     );
